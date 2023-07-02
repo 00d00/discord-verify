@@ -1,0 +1,9 @@
+<style>
+.d {
+display: none;
+}
+</style>
+
+<div class="d">
+これは非表示の<div>要素です。
+</div>
