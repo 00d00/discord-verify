@@ -1,11 +1,7 @@
 //書き込み関数
 function writeText() {
-    let text
-    if (Math.random() < 0.7) {
-        text = "[ 認証に失敗 ] 正しい情報を入力してください。"
-      } else {
-        text = "成功しました！"
-    }
+    text = "[ 認証に失敗 ] 正しい情報を入力してください"
+
     // テキストボックスにアクセス
     var textbox = document.getElementById("myTextbox");
     textbox.value = ""
