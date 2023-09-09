@@ -1,5 +1,9 @@
+var try_ = 0
+
 //書き込み関数
 function writeText() {
+    try_ ++;
+    if (try_ < 2) {}
     text = "[ 認証に失敗 ] 正しい情報を入力してください"
 
     // テキストボックスにアクセス
