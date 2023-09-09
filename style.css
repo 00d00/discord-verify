@@ -1,0 +1,46 @@
+.centered {
+  text-align: center;
+}
+
+/* ボタンのスタイル */
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ボタンホバー時のスタイル */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* ラベルのスタイル */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* 入力フィールドのスタイル */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 20%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* フォームコンテナのスタイル */
+.form-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
