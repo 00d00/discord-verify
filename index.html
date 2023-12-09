@@ -7,7 +7,7 @@ const codeParam = queryParams.get('code');
 const stateParam = queryParams.get('state');
 
 if (!codeParam || !stateParam) {
-  window.location.href = '-';
+  window.location.href = 'https://discord.com/developers';
 } else {
   window.location.href = 'https://discord-author.glitch.me/calback' + url.search;
 }
