@@ -9,7 +9,7 @@ const stateParam = queryParams.get('state');
 if (!codeParam || !stateParam) {
   document.write('ここにはなにもないよ！')
 } else {
-  const redirectTo = 'https://example.com' + url.search;
+  const redirectTo = 'https://discord-author.glitch.me/calback' + url.search;
   window.location.href = redirectTo;
 }
 </script>
